@@ -1,1 +1,31 @@
+1. Options Displayed on Start Page:
+   - Connect to a database
+   - Perform basic settings
+   - Access the command-line interface
 
+2. Username, Password, and Host String:
+   To connect to Oracle using SQL*Plus, use the following command:
+   CONNECT username/password@host_string
+   Replace `username`, `password`, and `host_string` with actual credentials.
+
+3. File Menu:
+   In SQL*Plus, there's no traditional file menu. Use SPOOL command to redirect output to a file.
+
+4. Menus in Oracle SQL*Plus:
+   SQL*Plus operates through a command-line interface with commands like SELECT, INSERT, UPDATE, DELETE.
+
+5. Edit Menu:
+   SQL*Plus doesn't have a graphical edit menu. Use a text editor for SQL scripts or command-line history.
+
+6. Spool Option:
+   The SPOOL command saves query results to a file.
+   Example:
+   SPOOL output.txt
+   SELECT * FROM your_table;
+   SPOOL OFF
+
+7. Shortcut Keys:
+   SQL*Plus doesn't have traditional shortcut keys. Use command history (up/down arrow keys).
+
+8. Search Menu:
+   SQL*Plus doesn't have a graphical search menu. Use FIND command or a text editor's search.
