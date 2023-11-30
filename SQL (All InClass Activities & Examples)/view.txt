@@ -1,0 +1,38 @@
+
+SQL> select * from u1;
+
+        NO NAME              AMT
+---------- ---------- ----------
+       101 jay              1500
+       102 jiya             1500
+       103 yash             1000
+       104 jay              1100
+       105 hiya             1500
+       106 usha             1500
+       107 yash             1000
+
+7 rows selected.
+
+SQL> create view v1 as
+  2  select sum(amt) as "Total Amt" from u1;
+
+View created.
+
+SQL> select * from v1;
+
+ Total Amt
+----------
+      9100
+
+SQL> insert into u1 (no,name,amt) values (108,'isha',1000);
+
+1 row created.
+
+Commit complete.
+SQL> select * from v1;
+
+ Total Amt
+----------
+     10100
+
+SQL>

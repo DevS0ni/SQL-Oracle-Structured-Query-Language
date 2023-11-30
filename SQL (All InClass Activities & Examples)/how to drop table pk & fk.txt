@@ -1,0 +1,52 @@
+
+SQL> set autocommit on;
+SQL> desc course;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ C_NO                                      NOT NULL NUMBER(38)
+ C_NAME                                    NOT NULL VARCHAR2(20)
+
+SQL> desc stud;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_NO                                   NOT NULL NUMBER(38)
+ STUD_NAME                                 NOT NULL VARCHAR2(20)
+ COURSE_NAME                                        NUMBER(38)
+
+SQL> select * from course;
+
+      C_NO C_NAME
+---------- --------------------
+         1 App Dev For Bizz
+         2 Prof App Dev
+         3 Adv App Dev
+         4 Dip App Dev
+         5 CPRG
+         6 C++
+         7 DS
+
+7 rows selected.
+
+SQL> desc stud;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_NO                                   NOT NULL NUMBER(38)
+ STUD_NAME                                 NOT NULL VARCHAR2(20)
+ COURSE_NAME                                        NUMBER(38)
+
+SQL> drop table course;
+drop table course
+           *
+ERROR at line 1:
+ORA-02449: unique/primary keys in table referenced by foreign keys
+
+
+SQL> drop table stud;
+
+Table dropped.
+
+SQL> drop table course;
+
+Table dropped.
+
+SQL>

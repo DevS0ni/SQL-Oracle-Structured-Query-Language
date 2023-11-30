@@ -1,0 +1,74 @@
+
+SQL> create table zp103
+  2  (
+  3  no int unique,
+  4  name varchar(15) not null
+  5  );
+
+Table created.
+
+SQL> desc zp103
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                      NOT NULL VARCHAR2(15)
+
+SQL> insert into zp103 (no,name) values (101,'jay');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp103 (no,name) values (102,'yash');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp103;
+
+        NO NAME
+---------- ---------------
+       101 jay
+       102 yash
+
+SQL> insert into zp103 (no,name) values (101,'isha');
+insert into zp103 (no,name) values (101,'isha')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C007204) violated
+
+
+SQL> insert into zp103 (no,name) values (103,'isha');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp103 (no,name) values (104,null);
+insert into zp103 (no,name) values (104,null)
+                                        *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."ZP103"."NAME")
+
+
+SQL> insert into zp103 (no) values (104);
+insert into zp103 (no) values (104)
+*
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."ZP103"."NAME")
+
+
+SQL> insert into zp103 (no,name) values (104,'usha');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp103 (no,name) values (null,'usha');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp103 (no,name) values (105,'usha');
+
+1 row created.
+
+Commit complete.
+SQL>

@@ -1,0 +1,46 @@
+
+SQL> set autocommit on;
+SQL> create table zp107
+  2  (
+  3  no int primary key,
+  4  name varchar(20) not null,
+  5  amt int check (amt>=5000),
+  6  c_date date default(sysdate),
+  7  status char(1) default('y')
+  8  );
+
+Table created.
+
+SQL> desc zp107
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                        NOT NULL NUMBER(38)
+ NAME                                      NOT NULL VARCHAR2(20)
+ AMT                                                NUMBER(38)
+ C_DATE                                             DATE
+ STATUS                                             CHAR(1)
+
+SQL> insert into zp107 (no,name,amt) values (1,'jiya',8000);
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp107 (no,name,amt) values (2,'isha',9000);
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp107 (no,name,amt) values (3,'diya',9000);
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp107;
+
+        NO NAME                        AMT C_DATE    S
+---------- -------------------- ---------- --------- -
+         1 jiya                       8000 21-OCT-21 y
+         2 isha                       9000 21-OCT-21 y
+         3 diya                       9000 21-OCT-21 y
+
+SQL>

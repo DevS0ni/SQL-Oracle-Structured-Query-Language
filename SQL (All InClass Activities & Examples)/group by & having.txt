@@ -1,0 +1,138 @@
+
+SQL> desc u1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(10)
+ AMT                                                NUMBER(38)
+
+SQL> select * from u1;
+
+        NO NAME              AMT
+---------- ---------- ----------
+       101 jay              1500
+       102 jiya             1500
+       103 yash             1000
+       104 jay              1100
+       105 hiya             1500
+       106 usha             1500
+       107 yash             1000
+
+7 rows selected.
+
+SQL> select count(amt) from u1;
+
+COUNT(AMT)
+----------
+         7
+
+SQL> select sum(amt) from u1;
+
+  SUM(AMT)
+----------
+      9100
+
+SQL> select avg(amt) from u1;
+
+  AVG(AMT)
+----------
+      1300
+
+SQL> select max(amt) from u1;
+
+  MAX(AMT)
+----------
+      1500
+
+SQL> select min(amt) from u1;
+
+  MIN(AMT)
+----------
+      1000
+
+SQL> select count(no),amt from u1 group by amt;
+
+ COUNT(NO)        AMT
+---------- ----------
+         2       1000
+         1       1100
+         4       1500
+
+SQL> select count(amt),no from u1 group by no;
+
+COUNT(AMT)         NO
+---------- ----------
+         1        102
+         1        101
+         1        107
+         1        104
+         1        105
+         1        103
+         1        106
+
+7 rows selected.
+
+SQL> select sum(no),amt from u1 group by amt;
+
+   SUM(NO)        AMT
+---------- ----------
+       210       1000
+       104       1100
+       414       1500
+
+SQL> select count(amt),no from u1 group by no;
+
+COUNT(AMT)         NO
+---------- ----------
+         1        102
+         1        101
+         1        107
+         1        104
+         1        105
+         1        103
+         1        106
+
+7 rows selected.
+
+SQL> select sum(amt),no from u1 group by no;
+
+  SUM(AMT)         NO
+---------- ----------
+      1500        102
+      1500        101
+      1000        107
+      1100        104
+      1500        105
+      1000        103
+      1500        106
+
+7 rows selected.
+
+SQL> select min(no),amt from u1 group by amt;
+
+   MIN(NO)        AMT
+---------- ----------
+       103       1000
+       104       1100
+       101       1500
+
+SQL> select count(no),amt from u1 group by amt having count(no)<2;
+
+ COUNT(NO)        AMT
+---------- ----------
+         1       1100
+
+SQL> select count(no),amt from u1 group by amt having count(no)>2;
+
+ COUNT(NO)        AMT
+---------- ----------
+         4       1500
+
+SQL> select count(no),amt from u1 group by amt having count(no)>=2;
+
+ COUNT(NO)        AMT
+---------- ----------
+         2       1000
+         4       1500
+
+SQL>

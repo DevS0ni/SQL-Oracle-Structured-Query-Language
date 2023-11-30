@@ -1,0 +1,124 @@
+
+SQL> create table course
+  2  (
+  3  course_no int primary key,
+  4  course_name varchar(20) unique
+  5  );
+
+Table created.
+
+SQL> desc course;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE_NO                                 NOT NULL NUMBER(38)
+ COURSE_NAME                                        VARCHAR2(20)
+
+SQL> insert into course (course_no,course_name)
+  2  values (101,'App Dev for Bizz');
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into course (course_no,course_name)
+  2* values (102,'Prof App Dev')
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into course (course_no,course_name)
+  2* values (103,'Adv App Dev')
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into course (course_no,course_name)
+  2* values (104,'Dip App Dev')
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into course (course_no,course_name)
+  2* values (105,'Dip App Java')
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into course (course_no,course_name)
+  2* values (106,'Dip App PHP')
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> select * from course;
+
+ COURSE_NO COURSE_NAME
+---------- --------------------
+       101 App Dev for Bizz
+       102 Prof App Dev
+       103 Adv App Dev
+       104 Dip App Dev
+       105 Dip App Java
+       106 Dip App PHP
+
+6 rows selected.
+
+SQL> create table stud
+  2  (
+  3  stud_id int primary key,
+  4  stud_name varchar(15) not null,
+  5  c_no int references course(course_no)
+  6  );
+
+Table created.
+
+SQL> desc stud;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_ID                                   NOT NULL NUMBER(38)
+ STUD_NAME                                 NOT NULL VARCHAR2(15)
+ C_NO                                               NUMBER(38)
+
+SQL> insert into stud (stud_id,stud_name,c_no)
+  2  values (1001,'jay',101);
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into stud (stud_id,stud_name,c_no)
+  2* values (1002,'yash',102)
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> select * from stud;
+
+   STUD_ID STUD_NAME             C_NO
+---------- --------------- ----------
+      1001 jay                    101
+      1002 yash                   102
+
+SQL>

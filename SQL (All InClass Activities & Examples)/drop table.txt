@@ -1,0 +1,14 @@
+
+SQL> set autocommit on;
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_NO                                            NUMBER(38)
+ NAME                                               VARCHAR2(10)
+ CITY                                               CHAR(10)
+
+SQL> drop table zp101;
+
+Table dropped.
+
+SQL>

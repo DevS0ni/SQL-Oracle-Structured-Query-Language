@@ -1,0 +1,26 @@
+
+SQL> desc zp103;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                        NOT NULL NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(10)
+
+SQL> select * from zp103;
+
+        NO NAME                 CITY
+---------- -------------------- ----------
+       101 AA
+       102 AB
+       101 AC
+       104
+
+SQL> truncate table zp103;
+
+Table truncated.
+
+SQL> select * from zp103;
+
+no rows selected
+
+SQL>

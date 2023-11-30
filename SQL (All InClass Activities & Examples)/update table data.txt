@@ -1,0 +1,50 @@
+
+SQL> select * from zp102;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+12 rows selected.
+
+SQL> update  zp102 set amt=1750 where no=5;
+
+1 row updated.
+
+SQL> select * from zp102;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1750        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+12 rows selected.
+
+SQL>

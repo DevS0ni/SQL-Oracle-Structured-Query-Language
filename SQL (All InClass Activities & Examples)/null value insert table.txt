@@ -1,0 +1,147 @@
+
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ GEN                                                CHAR(1)
+
+SQL> select * from zp101;
+
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+         4 harshangi            f
+         5 jay                  m
+         6 yash                 m
+
+6 rows selected.
+
+SQL> insert into zp101 (no,name,gen) values (7,null,'m');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp101;
+
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+         4 harshangi            f
+         5 jay                  m
+         6 yash                 m
+         7                      m
+
+7 rows selected.
+
+SQL> insert into zp101 (name,gen) values (Hency,'m');
+insert into zp101 (name,gen) values (Hency,'m')
+                                     *
+ERROR at line 1:
+ORA-00984: column not allowed here
+
+
+SQL> insert into zp101 (name,gen) values ('Hency','m');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp101;
+
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+         4 harshangi            f
+         5 jay                  m
+         6 yash                 m
+         7                      m
+           Hency                m
+
+8 rows selected.
+
+SQL> insert into zp101 values (8,'chrami',null);
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp101;
+
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+         4 harshangi            f
+         5 jay                  m
+         6 yash                 m
+         7                      m
+           Hency                m
+         8 chrami
+
+9 rows selected.
+
+SQL> insert into zp101 values (8,'chrami');
+insert into zp101 values (8,'chrami')
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into zp101 values (&no,'&name','&gen');
+Enter value for no: 1
+Enter value for name: sdf
+Enter value for gen: null
+old   1: insert into zp101 values (&no,'&name','&gen')
+new   1: insert into zp101 values (1,'sdf','null')
+insert into zp101 values (1,'sdf','null')
+                                  *
+ERROR at line 1:
+ORA-12899: value too large for column "SYSTEM"."ZP101"."GEN" (actual: 4,
+maximum: 1)
+
+
+SQL> /
+Enter value for no: null
+Enter value for name: aqqw
+Enter value for gen: m
+old   1: insert into zp101 values (&no,'&name','&gen')
+new   1: insert into zp101 values (null,'aqqw','m')
+
+1 row created.
+
+Commit complete.
+SQL> /
+Enter value for no: 2
+Enter value for name: null
+Enter value for gen: f
+old   1: insert into zp101 values (&no,'&name','&gen')
+new   1: insert into zp101 values (2,'null','f')
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp101;
+
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+         4 harshangi            f
+         5 jay                  m
+         6 yash                 m
+         7                      m
+           Hency                m
+         8 chrami
+           aqqw                 m
+         2 null                 f
+
+11 rows selected.
+
+SQL>

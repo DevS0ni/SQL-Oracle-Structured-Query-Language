@@ -1,0 +1,352 @@
+
+
+SQL> select * from u1;
+
+        NO NAME
+---------- ----------
+       101 jay
+       102 jiya
+       103 yash
+       104 jay
+       105 hiya
+       106 usha
+       107 yash
+
+7 rows selected.
+
+SQL> select * from u2;
+
+        NO NAME
+---------- ----------
+       101 krishna
+       102 jiya
+       103 hency
+       104 chrami
+       105 yash
+       106 manshi
+       107 yash
+
+7 rows selected.
+
+SQL> select name from u1
+  2  union all
+  3  select name from u2;
+
+NAME
+----------
+jay
+jiya
+yash
+jay
+hiya
+usha
+yash
+krishna
+jiya
+hency
+chrami
+
+NAME
+----------
+yash
+manshi
+yash
+
+14 rows selected.
+
+SQL> select * from stud;
+
+   STUD_ID STUD_NAME             C_NO
+---------- --------------- ----------
+      1001 jay                    101
+      1002 yash                   102
+      1003 jiya                   102
+      1004 kiya                   103
+      1005 lina                   101
+      1006 isha                   105
+
+6 rows selected.
+
+SQL> select name from u1
+  2  unoin all
+  3  select stud_name from stud;
+unoin all
+      *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select name from u1
+  2  union all
+  3  select stud_name from stud;
+
+NAME
+---------------
+jay
+jiya
+yash
+jay
+hiya
+usha
+yash
+jay
+yash
+jiya
+kiya
+
+NAME
+---------------
+lina
+isha
+
+13 rows selected.
+
+SQL> select * from u1;
+
+        NO NAME
+---------- ----------
+       101 jay
+       102 jiya
+       103 yash
+       104 jay
+       105 hiya
+       106 usha
+       107 yash
+
+7 rows selected.
+
+SQL> select * from u2;
+
+        NO NAME
+---------- ----------
+       101 krishna
+       102 jiya
+       103 hency
+       104 chrami
+       105 yash
+       106 manshi
+       107 yash
+
+7 rows selected.
+
+SQL> select name from u1
+  2  unoin
+  3  select name from u2;
+select name from u2
+*
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select name from u1
+  2  union
+  3  select name from u2;
+
+NAME
+----------
+chrami
+hency
+hiya
+jay
+jiya
+krishna
+manshi
+usha
+yash
+
+9 rows selected.
+
+SQL> select name from u1
+  2  intersect
+  3  select name from u2;
+
+NAME
+----------
+jiya
+yash
+
+SQL> select * from u1;
+
+        NO NAME
+---------- ----------
+       101 jay
+       102 jiya
+       103 yash
+       104 jay
+       105 hiya
+       106 usha
+       107 yash
+
+7 rows selected.
+
+SQL> select * from u2;
+
+        NO NAME
+---------- ----------
+       101 krishna
+       102 jiya
+       103 hency
+       104 chrami
+       105 yash
+       106 manshi
+       107 yash
+
+7 rows selected.
+
+SQL> insert into u2 (no,name) values (108,'jay');
+
+1 row created.
+
+Commit complete.
+SQL> select name from u1
+  2  intersect
+  3  select name from u2;
+
+NAME
+----------
+jay
+jiya
+yash
+
+SQL> select * from u1
+  2  ;
+
+        NO NAME
+---------- ----------
+       101 jay
+       102 jiya
+       103 yash
+       104 jay
+       105 hiya
+       106 usha
+       107 yash
+
+7 rows selected.
+
+SQL> select * from u2;
+
+        NO NAME
+---------- ----------
+       101 krishna
+       102 jiya
+       103 hency
+       104 chrami
+       105 yash
+       106 manshi
+       107 yash
+       108 jay
+
+8 rows selected.
+
+SQL> select name from u1
+  2  minus
+  3  select name from u2;
+
+NAME
+----------
+hiya
+usha
+
+SQL> select name from u2
+  2  minus
+  3  select name from u1;
+
+NAME
+----------
+chrami
+hency
+krishna
+manshi
+
+SQL> select name from u1
+  2  union all
+  3  select name from u2
+  4  union all
+  5  select stud_name from stud;
+
+NAME
+---------------
+jay
+jiya
+yash
+jay
+hiya
+usha
+yash
+krishna
+jiya
+hency
+chrami
+
+NAME
+---------------
+yash
+manshi
+yash
+jay
+jay
+yash
+jiya
+kiya
+lina
+isha
+
+21 rows selected.
+
+SQL> select * from u1
+  2  union all
+  3  select * from u2;
+
+        NO NAME
+---------- ----------
+       101 jay
+       102 jiya
+       103 yash
+       104 jay
+       105 hiya
+       106 usha
+       107 yash
+       101 krishna
+       102 jiya
+       103 hency
+       104 chrami
+
+        NO NAME
+---------- ----------
+       105 yash
+       106 manshi
+       107 yash
+       108 jay
+
+15 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select * from u1
+  2  union
+  3* select * from u2
+SQL> /
+
+        NO NAME
+---------- ----------
+       101 jay
+       101 krishna
+       102 jiya
+       103 hency
+       103 yash
+       104 chrami
+       104 jay
+       105 hiya
+       105 yash
+       106 manshi
+       106 usha
+
+        NO NAME
+---------- ----------
+       107 yash
+       108 jay
+
+13 rows selected.
+
+SQL>

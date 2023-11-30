@@ -1,0 +1,33 @@
+
+SQL> desc zp102;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ GEN                                                CHAR(1)
+ CITY                                               VARCHAR2(10)
+ AMT                                                NUMBER(38)
+ DIS                                                NUMBER(5,2)
+ C_DATE                                             DATE
+
+SQL> alter table zp102 rename to zp101;
+
+Table altered.
+
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ GEN                                                CHAR(1)
+ CITY                                               VARCHAR2(10)
+ AMT                                                NUMBER(38)
+ DIS                                                NUMBER(5,2)
+ C_DATE                                             DATE
+
+SQL> desc zp102;
+ERROR:
+ORA-04043: object zp102 does not exist
+
+
+SQL>

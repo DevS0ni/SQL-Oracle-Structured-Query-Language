@@ -1,0 +1,85 @@
+
+SQL> desc dual;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DUMMY                                              VARCHAR2(1)
+
+SQL> select upper('itc') from dual;
+
+UPP
+---
+ITC
+
+SQL> select upper(name) from zp102;
+
+UPPER(NAME)
+--------------------
+JAY
+YASH
+HENCY
+JAY
+JIYA
+YESH
+HINA
+GEET
+KRISHNA
+KRISH
+DEV
+
+11 rows selected.
+
+SQL> select upper(name) as "Student Name" from zp102;
+
+Student Name
+--------------------
+JAY
+YASH
+HENCY
+JAY
+JIYA
+YESH
+HINA
+GEET
+KRISHNA
+KRISH
+DEV
+
+11 rows selected.
+
+SQL> select lpad(name,15,'*') from zp102;
+
+LPAD(NAME,15,'*')
+------------------------------------------------------------
+************jay
+***********yash
+**********hency
+************jay
+***********jiya
+***********yesh
+***********hina
+***********geet
+********krishna
+**********krish
+************dev
+
+11 rows selected.
+
+SQL> select rpad(name,15,'*') from zp102;
+
+RPAD(NAME,15,'*')
+------------------------------------------------------------
+jay************
+yash***********
+hency**********
+jay************
+jiya***********
+yesh***********
+hina***********
+geet***********
+krishna********
+krish**********
+dev************
+
+11 rows selected.
+
+SQL>

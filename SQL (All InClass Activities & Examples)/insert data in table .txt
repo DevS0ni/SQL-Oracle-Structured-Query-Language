@@ -1,0 +1,73 @@
+
+SQL> set autocommit on;
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ GEN                                                CHAR(1)
+
+SQL> select * from zp101;
+
+no rows selected
+
+SQL> insert into zp101 (no,name,gen) values (1,'dev','m');
+
+1 row created.
+
+Commit complete.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into zp101 (no,name,gen) values (2,'moin','m')
+SQL> /
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp101 values (3,'pratik','m');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp101;
+
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+
+SQL> insert into zp101 values (4,'harshangi','f');
+
+1 row created.
+
+Commit complete.
+        NO NAME                 G
+---------- -------------------- -
+         1 dev                  m
+         2 moin                 m
+         3 pratik               m
+         4 harshangi            f
+
+SQL> insert into zp101 values (&no,'&name','&gen');
+Enter value for no: 5
+Enter value for name: jay
+Enter value for gen: m
+old   1: insert into zp101 values (&no,'&name','&gen')
+new   1: insert into zp101 values (5,'jay','m')
+
+1 row created.
+
+Commit complete.
+SQL> /
+Enter value for no: 6
+Enter value for name: yash
+Enter value for gen: m
+old   1: insert into zp101 values (&no,'&name','&gen')
+new   1: insert into zp101 values (6,'yash','m')
+
+1 row created.
+
+Commit complete.
+SQL>

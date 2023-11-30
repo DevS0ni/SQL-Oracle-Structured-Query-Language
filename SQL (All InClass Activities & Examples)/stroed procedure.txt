@@ -1,0 +1,69 @@
+
+SQL> set autocommit on;
+SQL> create procedure p1
+  2  as
+  3  begin
+  4  dbms_output.put_line('hello');
+  5  end;
+  6  /
+
+Procedure created.
+
+SQL> exec p1;
+
+PL/SQL procedure successfully completed.
+
+Commit complete.
+SQL> set serveroutput on;
+SQL> exec p1;
+hello
+
+PL/SQL procedure successfully completed.
+
+Commit complete.
+SQL> create table zp2
+  2  (
+  3  no int,
+  4  name varchar(10)
+  5  );
+
+Table created.
+
+SQL> create or replace procedure p1_zp2
+  2  as
+  3  begin
+  4  insert into zp2 (no,name) values (101,'AA');
+  5  insert into zp2 (no,name) values (102,'AB');
+  6  insert into zp2 (no,name) values (103,'AC');
+  7  insert into zp2 (no,name) values (104,'AD');
+  8  end;
+  9  /
+
+Procedure created.
+
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         8 AA
+         9 AB
+
+SQL> select * from zp2;
+
+no rows selected
+
+SQL> exec p1_zp2;
+
+PL/SQL procedure successfully completed.
+
+Commit complete.
+SQL> select * from zp2;
+
+        NO NAME
+---------- ----------
+       101 AA
+       102 AB
+       103 AC
+       104 AD
+
+SQL>

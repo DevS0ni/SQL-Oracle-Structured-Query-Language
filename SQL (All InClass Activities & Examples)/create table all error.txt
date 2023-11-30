@@ -1,0 +1,323 @@
+
+SQL> set autocommit on;
+SQL> create table zp101
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char(1)
+  6  );
+create table zp101
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char(1)
+  6* )
+SQL> /
+create table zp1
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char(1)
+  6* );
+SQL> /
+);
+ *
+ERROR at line 6:
+ORA-00911: invalid character
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char(1),
+  6* )
+SQL> /
+)
+*
+ERROR at line 6:
+ORA-00904: : invalid identifier
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen chaar(1)
+  6* )
+SQL> /
+gen chaar(1)
+         *
+ERROR at line 5:
+ORA-00907: missing right parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char
+  6* )
+SQL> /
+create table zp1
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp 1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char
+  6* )
+SQL> /
+create table zp 1
+                *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  no int,
+  3  name varchar(20),
+  4  gen char
+  5* )
+  6  /
+no int,
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  stud no int,
+  4  name varchar(20),
+  5  gen char
+  6* )
+SQL> /
+stud no int,
+        *
+ERROR at line 3:
+ORA-00907: missing right parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no innt,
+  4  name varchar(20),
+  5  gen char
+  6* )
+SQL> /
+no innt,
+   *
+ERROR at line 3:
+ORA-00902: invalid datatype
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int
+  4  name varchar(20),
+  5  gen char
+  6* )
+SQL> /
+name varchar(20),
+*
+ERROR at line 4:
+ORA-00907: missing right parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name vaarrchar(20),
+  5  gen char
+  6* )
+SQL> /
+name vaarrchar(20),
+              *
+ERROR at line 4:
+ORA-00907: missing right parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar20),
+  5  gen char
+  6* )
+SQL> /
+name varchar20),
+               *
+ERROR at line 4:
+ORA-00922: missing or invalid option
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20,
+  5  gen char
+  6* )
+SQL> /
+name varchar(20,
+               *
+ERROR at line 4:
+ORA-00907: missing right parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar,
+  5  gen char
+  6* )
+SQL> /
+name varchar,
+            *
+ERROR at line 4:
+ORA-00906: missing left parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  number number(20),
+  5  name varchar(20),
+  6  gen char
+  7* )
+SQL> /
+number number(20),
+*
+ERROR at line 4:
+ORA-00904: : invalid identifier
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  name varchar(20),
+  5  gen char,
+  6  date date
+  7* )
+SQL> /
+date date
+*
+ERROR at line 6:
+ORA-00904: : invalid identifier
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  no int,
+  5  name varchar(20),
+  6  gen char
+  7* )
+SQL> /
+no int,
+*
+ERROR at line 4:
+ORA-00957: duplicate column name
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  sno numberr,
+  5  name varchar(20),
+  6  gen char
+  7* )
+SQL> /
+sno numberr,
+    *
+ERROR at line 4:
+ORA-00902: invalid datatype
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table zp1
+  2  (
+  3  no int,
+  4  sno number,
+  5  name varchar(20),
+  6  gen char
+  7* )
+SQL> /
+create table zp1
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>

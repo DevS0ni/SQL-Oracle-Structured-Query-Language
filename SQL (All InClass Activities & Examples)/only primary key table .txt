@@ -1,0 +1,40 @@
+
+SQL> create table zp106
+  2  (
+  3  no int primary key,
+  4  name varchar(20)
+  5  );
+
+Table created.
+
+SQL> desc zp106
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                        NOT NULL NUMBER(38)
+ NAME                                               VARCHAR2(20)
+
+SQL> insert into zp106 (no,name) values (101,'AA');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp106 (no,name) values (102,'AB');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp106 (no,name) values (102,'AC');
+insert into zp106 (no,name) values (102,'AC')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C007205) violated
+
+
+SQL> insert into zp106 (no,name) values (null,'AC');
+insert into zp106 (no,name) values (null,'AC')
+                                    *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."ZP106"."NO")
+
+
+SQL>

@@ -1,0 +1,124 @@
+
+SQL> select * from course;
+
+ COURSE_NO COURSE_NAME
+---------- --------------------
+       101 App Dev for Bizz
+       102 Prof App Dev
+       103 Adv App Dev
+       104 Dip App Dev
+       105 Dip App Java
+       106 Dip App PHP
+
+6 rows selected.
+
+SQL> select * from stud;
+
+   STUD_ID STUD_NAME             C_NO
+---------- --------------- ----------
+      1001 jay                    101
+      1002 yash                   102
+      1003 isha                   101
+      1004 shina                  106
+      1005 shreya                 103
+      1006 jiya                   102
+
+6 rows selected.
+
+SQL> select course_name,stud_id,stud_name
+  2  from course
+  3  inner join stud on course.course_no=stud.c_no;
+
+COURSE_NAME             STUD_ID STUD_NAME
+-------------------- ---------- ---------------
+App Dev for Bizz           1003 isha
+App Dev for Bizz           1001 jay
+Prof App Dev               1006 jiya
+Prof App Dev               1002 yash
+Adv App Dev                1005 shreya
+Dip App PHP                1004 shina
+
+6 rows selected.
+
+SQL>
+
+SQL> select * from course;
+
+ COURSE_NO COURSE_NAME
+---------- --------------------
+       101 App Dev for Bizz
+       102 Prof App Dev
+       103 Adv App Dev
+       104 Dip App Dev
+       105 Dip App Java
+       106 Dip App PHP
+
+6 rows selected.
+
+SQL> select * from stud;
+
+   STUD_ID STUD_NAME             C_NO
+---------- --------------- ----------
+      1001 jay                    101
+      1002 yash                   102
+      1003 jiya                   102
+      1004 kiya                   103
+      1005 lina                   101
+      1006 isha                   105
+
+6 rows selected.
+
+SQL> select course_name,stud_name
+  2  from course
+  3  left join stud on course.course_no=stud.c_no;
+
+COURSE_NAME          STUD_NAME
+-------------------- ---------------
+App Dev for Bizz     jay
+Prof App Dev         yash
+Prof App Dev         jiya
+Adv App Dev          kiya
+App Dev for Bizz     lina
+Dip App Java         isha
+Dip App PHP
+Dip App Dev
+
+8 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select course_name,stud_name
+  2  from course
+  3* left join stud on course.course_no=stud.c_no order by course_name
+SQL> /
+
+COURSE_NAME          STUD_NAME
+-------------------- ---------------
+Adv App Dev          kiya
+App Dev for Bizz     lina
+App Dev for Bizz     jay
+Dip App Dev
+Dip App Java         isha
+Dip App PHP
+Prof App Dev         yash
+Prof App Dev         jiya
+
+8 rows selected.
+
+SQL>
+
+SQL> select course_name,stud_name
+  2  from course
+  3  right join stud on course.course_no=stud.c_no;
+
+COURSE_NAME          STUD_NAME
+-------------------- ---------------
+App Dev for Bizz     lina
+App Dev for Bizz     jay
+Prof App Dev         jiya
+Prof App Dev         yash
+Adv App Dev          kiya
+Dip App Java         isha
+
+6 rows selected.

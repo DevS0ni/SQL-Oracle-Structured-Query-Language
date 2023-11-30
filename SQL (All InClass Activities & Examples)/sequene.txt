@@ -1,0 +1,187 @@
+
+SQL> set autocommit on;
+SQL> create table zp1
+  2  (
+  3  no int primary key,
+  4  name varchar(10)
+  5  );
+
+Table created.
+
+SQL>
+SQL> insert into zp1 (no,name) values (1,'AA');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (2,'AB');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (3,'AC');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (4,'AD');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (5,'AE');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         1 AA
+         2 AB
+         3 AC
+         4 AD
+         5 AE
+
+SQL> delete from zp1 where no=2;
+
+1 row deleted.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         1 AA
+         3 AC
+         4 AD
+         5 AE
+
+SQL> insert into zp1 (no,name) values (2,'AF');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         1 AA
+         3 AC
+         4 AD
+         5 AE
+         2 AF
+
+SQL> truncate table zp1;
+
+Table truncated.
+
+SQL> select * from zp1;
+
+no rows selected
+
+SQL> create sequence s1
+  2  start with 1
+  3  increment by 1;
+
+Sequence created.
+
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AA');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AB');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AC');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AD');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AE');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AF');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         1 AA
+         2 AB
+         3 AC
+         4 AD
+         5 AE
+         6 AF
+
+6 rows selected.
+
+SQL> delete from zp1 where no=4;
+
+1 row deleted.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         1 AA
+         2 AB
+         3 AC
+         5 AE
+         6 AF
+
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AG');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         1 AA
+         2 AB
+         3 AC
+         5 AE
+         6 AF
+         7 AG
+
+6 rows selected.
+
+SQL> truncate table zp1;
+
+Table truncated.
+
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AA');
+
+1 row created.
+
+Commit complete.
+SQL> insert into zp1 (no,name) values (s1.nextVal,'AB');
+
+1 row created.
+
+Commit complete.
+SQL> select * from zp1;
+
+        NO NAME
+---------- ----------
+         8 AA
+         9 AB
+
+SQL>

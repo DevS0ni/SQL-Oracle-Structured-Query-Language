@@ -1,0 +1,455 @@
+
+SQL> desc zp102;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(10)
+ AMT                                                NUMBER(38)
+ DIS                                                NUMBER(5,2)
+ C_DATE                                             DATE
+
+SQL> select * from zp102;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+12 rows selected.
+
+SQL> select name from zp102;
+
+NAME
+--------------------
+jay
+yash
+hency
+jay
+jiya
+yesh
+hina
+geet
+krishna
+krish
+dev
+
+NAME
+--------------------
+divy
+
+12 rows selected.
+
+SQL> select name,amt from zp102;
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+yash                       1700
+hency                      1550
+jay                        1550
+jiya                       1700
+yesh                       1000
+hina                       1440
+geet                       1900
+krishna                    2000
+krish                      2000
+dev                        2100
+
+NAME                        AMT
+-------------------- ----------
+divy                       2500
+
+12 rows selected.
+
+SQL> select name,amt,dis from zp102 where no=5;
+
+NAME                        AMT        DIS
+-------------------- ---------- ----------
+jiya                       1700        120
+
+SQL> select * from zp102 where no=5;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         5 jiya                 baroda           1700        120 14-JAN-21
+
+SQL> select amt from zp102 where name='jay';
+
+       AMT
+----------
+      1500
+      1550
+
+SQL> select * from zp102 where name='jay';
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         4 jay                  surat            1550        120 04-JAN-21
+
+SQL> select * from zp102 where no<>10;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+11 rows selected.
+
+SQL> select * from zp102 where name <> 'jay';
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+10 rows selected.
+
+SQL> select name,amt from zp102 where amt<=1500;
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+yesh                       1000
+hina                       1440
+
+SQL> select name,amt from zp102 where amt<1500;
+
+NAME                        AMT
+-------------------- ----------
+yesh                       1000
+hina                       1440
+
+SQL> select name,amt from zp102 where amt>1500;
+
+NAME                        AMT
+-------------------- ----------
+yash                       1700
+hency                      1550
+jay                        1550
+jiya                       1700
+geet                       1900
+krishna                    2000
+krish                      2000
+dev                        2100
+divy                       2500
+
+9 rows selected.
+
+SQL> select name,amt from zp102 where amt>=1500;
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+yash                       1700
+hency                      1550
+jay                        1550
+jiya                       1700
+geet                       1900
+krishna                    2000
+krish                      2000
+dev                        2100
+divy                       2500
+
+10 rows selected.
+
+SQL>
+
+
+SQL> desc zp102;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(10)
+ AMT                                                NUMBER(38)
+ DIS                                                NUMBER(5,2)
+ C_DATE                                             DATE
+
+SQL> select * from zp102;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+12 rows selected.
+
+SQL> select name,amt from zp102 amt>=1000 and amt<=1500;
+select name,amt from zp102 amt>=1000 and amt<=1500
+                              *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select name,amt from zp102 where amt>=1000 and amt<=1500;
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+yesh                       1000
+hina                       1440
+
+SQL> select name,amt from zp102 where amt>1000 and amt<=1500;
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+hina                       1440
+
+SQL> select name,amt from zp102 where amt<=1000 and amt>=1500;
+
+no rows selected
+
+SQL> select name,amt from zp102 where amt between 1000 and 1500;
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+yesh                       1000
+hina                       1440
+
+SQL> select name,amt from zp102 where amt between 1000 or 1500;
+select name,amt from zp102 where amt between 1000 or 1500
+                                                  *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> select * from zp102;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+12 rows selected.
+
+SQL> select name,amt from zp102 where amt between 1500 and 1000;
+
+no rows selected
+
+SQL> select name,amt from zp102 where name between 'dev' and 'jay';
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+hency                      1550
+jay                        1550
+hina                       1440
+geet                       1900
+dev                        2100
+divy                       2500
+
+7 rows selected.
+
+SQL> select name,amt from zp102 where name between 'jay' and 'dev';
+
+no rows selected
+
+SQL> select * from zp102 where name='jay';
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         4 jay                  surat            1550        120 04-JAN-21
+
+SQL> select name from zp102 where name like 'j%';
+
+NAME
+--------------------
+jay
+jay
+jiya
+
+SQL> select name from zp102 where name like '%a';
+
+NAME
+--------------------
+jiya
+hina
+krishna
+
+SQL> select name from zp102 where name like 'k_%';
+
+NAME
+--------------------
+krishna
+krish
+
+SQL> select name from zp102 where name like 'k__%';
+
+NAME
+--------------------
+krishna
+krish
+
+SQL> select name from zp102 where name like 'k_%_';
+
+NAME
+--------------------
+krishna
+krish
+
+SQL> select name from zp102 where name like '_a%';
+
+NAME
+--------------------
+jay
+yash
+jay
+
+SQL> select name from zp102 where name like '%a%';
+
+NAME
+--------------------
+jay
+yash
+jay
+jiya
+hina
+krishna
+
+6 rows selected.
+
+SQL> select name from zp102 where name like '_c%';
+
+no rows selected
+
+SQL> select name from zp102 where name like '_a%';
+
+NAME
+--------------------
+jay
+yash
+jay
+
+SQL> select name from zp102 where name not like '_a%';
+
+NAME
+--------------------
+hency
+jiya
+yesh
+hina
+geet
+krishna
+krish
+dev
+divy
+
+9 rows selected.
+
+SQL> select * from zp102;
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+12 rows selected.
+
+SQL> select name,amt from zp102 where name='jay' or name='dev' or name='yesh';
+
+NAME                        AMT
+-------------------- ----------
+jay                        1500
+jay                        1550
+yesh                       1000
+dev                        2100
+
+SQL> select * from zp102 where city in ('anand','surat','borsad');
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         1 jay                  borsad           1500     100.02 07-JUN-21
+         2 yash                 anand            1700        170 04-FEB-21
+         3 hency                anand            1550        150 04-JAN-21
+         4 jay                  surat            1550        120 04-JAN-21
+         7 hina                 borsad           1440         10 15-MAY-21
+         8 geet                 surat            1900        200 10-MAY-21
+         9 krishna              anand            2000        200 01-MAR-21
+        11 dev                  borsad           2100     152.45 13-OCT-21
+        12 divy                 borsad           2500     102.45 18-OCT-21
+
+9 rows selected.
+
+SQL> select * from zp102 where city not in ('anand','surat','borsad');
+
+        NO NAME                 CITY              AMT        DIS C_DATE
+---------- -------------------- ---------- ---------- ---------- ---------
+         5 jiya                 baroda           1700        120 14-JAN-21
+         6 yesh                 baroda           1000         10 14-JAN-21
+        10 krish                baroda           2000      200.2 10-MAR-21
+
+SQL>

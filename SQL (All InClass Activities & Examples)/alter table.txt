@@ -1,0 +1,66 @@
+
+SQL> set autocommit on;
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ GEN                                                CHAR(1)
+
+SQL> alter table zp101 add city varchar(10);
+
+Table altered.
+
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ GEN                                                CHAR(1)
+ CITY                                               VARCHAR2(10)
+
+SQL> alter table zp101 drop column gen;
+
+Table altered.
+
+SQL> desc zp101
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(10)
+
+SQL> alter table zp101 rename column no to stud_no;
+
+Table altered.
+
+SQL> desc zp101
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_NO                                            NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(10)
+
+SQL> alter table zp101 modify name varchar(10);
+
+Table altered.
+
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_NO                                            NUMBER(38)
+ NAME                                               VARCHAR2(10)
+ CITY                                               VARCHAR2(10)
+
+SQL> alter table zp101 modify city char(10);
+
+Table altered.
+
+SQL> desc zp101;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_NO                                            NUMBER(38)
+ NAME                                               VARCHAR2(10)
+ CITY                                               CHAR(10)
+
+SQL>
